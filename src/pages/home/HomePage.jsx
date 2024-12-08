@@ -4,7 +4,6 @@ import { TypesNav } from "./TypesNav";
 export const HomePage = () => {
   return (
     <>
-      <NavBar />
       <TypesNav />
     </>
   );
