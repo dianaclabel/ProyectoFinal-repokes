@@ -10,6 +10,7 @@ export const useFetch = (url) => {
     const cached = localStorage.getItem(url);
     if (cached) {
       setData(JSON.parse(cached));
+      setLoading(false);
       return;
     }
 
