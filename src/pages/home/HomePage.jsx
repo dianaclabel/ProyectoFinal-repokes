@@ -9,10 +9,10 @@ export const HomePage = () => {
 
   return (
     <div className="grid md:grid-cols-[auto_1fr] place-items-start">
-      <div className="sticky top-0">
+      <div className="md:sticky top-0">
         <TypesNav />
       </div>
-      <div className="grid grid-cols-4 gap-4 p-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 p-4 lg:p-8">
         {list.results?.map(({ name }) => (
           <Card key={name} name={name} />
         ))}

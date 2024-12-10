@@ -1,6 +1,6 @@
 export const ProgressBar = ({ percentage }) => {
   return (
-    <div className="bg-white rounded-md">
+    <div className="bg-white rounded-md border">
       <div
         style={{
           width: `${percentage}%`,

@@ -13,13 +13,17 @@ export const TypePage = () => {
   console.log(result);
 
   return (
-    <div className="grid md:grid-cols-[auto_1fr] place-items-start">
-      <div className="sticky top-0">
+    <div className="grid lg:grid-cols-[auto_1fr]  place-items-start">
+      <div className=" lg:sticky top-0">
         <TypesNav />
       </div>
-      <div className="grid gap-4 p-8">
-        <h1>Tipo: {name}</h1>
-        <div className="grid grid-cols-4 gap-4">
+      <div className="grid gap-4 p-8  ">
+        <h1 className="text-2xl border-solid border-4 border-yellow-200 lg:w-1/6 w-1/2 rounded-lg text-center font-bold capitalize">
+          <div className="rounded-lg  bg-yellow-400 border-solid border-2 border-gray-100">
+            {name}
+          </div>
+        </h1>
+        <div className="grid lg:grid-cols-4 grid-cols-2 gap-4">
           {result.pokemon.map(({ pokemon }) => (
             <Card key={pokemon.name} name={pokemon.name} />
           ))}

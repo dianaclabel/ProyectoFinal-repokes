@@ -40,7 +40,7 @@ export const Card = ({ name }) => {
         />
       </div>
       <div
-        className={`px-4 pt-2 pb-4 rounded-lg border border-[#424242] shadow-[2px_2px_10px_-4px_rgba(0,0,0,1)] ${
+        className={`lg:px-4 px-1 pt-2 pb-4 rounded-lg border border-[#424242] shadow-[2px_2px_10px_-4px_rgba(0,0,0,1)] ${
           colors[speciesPokemon?.color?.name]
         }`}
       >
@@ -84,7 +84,7 @@ export const Card = ({ name }) => {
             <div key={i} className="col-span-3 grid grid-cols-subgrid items-center gap-2">
               <span className="capitalize ng-[#484848] text-xs font-bold">{stat.stat.name}</span>
               <div>
-                <ProgressBar percentage={(stat.base_stat / 120) * 100} />
+                <ProgressBar percentage={(stat.base_stat / 255) * 100} />
               </div>
               <span className="text-end text-[#484848] text-xs font-bold py-1">
                 {stat.base_stat}

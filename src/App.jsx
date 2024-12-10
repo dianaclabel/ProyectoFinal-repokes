@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import { HomePage } from "./pages/home/HomePage";
-import { FavoritesPage } from "./pages/favorites/FavoritesPage";
 import { NewReportPage } from "./pages/reports/NewReportPage";
 import { ReportsPage } from "./pages/reports/ReportsPage";
 import { NavBar } from "./components/NavBar";
 import { FavoritesProvider } from "./context/favorites";
 import { TypePage } from "./pages/type/TypePage";
+import { FavoritesPage } from "./pages/Favorites/FavoritesPage";
 
 function App() {
   return (
