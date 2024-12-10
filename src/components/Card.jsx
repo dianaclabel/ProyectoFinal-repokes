@@ -14,6 +14,16 @@ const colors = {
   white: "bg-gray-200",
 };
 
+// const colorsTypes = {
+//   grass: "bg-red-400",
+//   red: "bg-red-400",
+//   blue: "bg-blue-400",
+//   yellow: "bg-amber-200",
+//   brown: "bg-orange-400",
+//   purple: "bg-purple-300",
+//   white: "bg-gray-200",
+// };
+
 export const Card = ({ name }) => {
   const { data: pokemon, loading, error } = usePokeFetch("pokemon", name);
   const {
@@ -21,6 +31,8 @@ export const Card = ({ name }) => {
     loading: loadSpecie,
     error: errorSpecie,
   } = usePokeFetch("pokemon-species", name);
+
+  console.log(pokemon?.types.map((type) => type.type.name));
 
   const { toggleFavorite, favorites } = useFavorites();
 
@@ -40,7 +52,7 @@ export const Card = ({ name }) => {
         />
       </div>
       <div
-        className={`lg:px-4 px-1 pt-2 pb-4 rounded-lg border border-[#424242] shadow-[2px_2px_10px_-4px_rgba(0,0,0,1)] ${
+        className={`lg:px-4 px-1 pt-2 pb-4 rounded-lg  shadow-[2px_2px_10px_-4px_rgba(0,0,0,1)] ${
           colors[speciesPokemon?.color?.name]
         }`}
       >
@@ -91,6 +103,22 @@ export const Card = ({ name }) => {
               </span>
             </div>
           ))}
+        </div>
+
+        {/* <div className={`${colorsTypes[pokemon?.types?.map((type) => type.type.name)]}`}>
+          {pokemon?.types?.map((type, i) => (
+            <span
+              key={i}
+              className={`text-xs font-bold capitalize bg-white border-solid border rounded-md border-[#424242] p-1 mr-1`}
+            >
+              {type.type.name}
+            </span>
+          ))}
+        </div> */}
+        <div className="flex justify-center mt-6">
+          <button className="  w-3/4 rounded-md py-2  bg-amber-400 text-blue-600  border-blue-600 border-solid border-4 font-bold">
+            Reportar pokemón
+          </button>
         </div>
       </div>
     </div>
