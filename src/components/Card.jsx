@@ -29,8 +29,6 @@ export const Card = ({ name }) => {
   if (loading) return null;
 
   if (loadSpecie) return null;
-  // console.log(speciesPokemon);
-  console.log(speciesPokemon);
 
   return (
     <div className="flex flex-col gap-2 bg-orange bg-gre">
@@ -79,7 +77,7 @@ export const Card = ({ name }) => {
         </h4>
         <h4 className="mt-[2px] text-sm  block capitalize">
           <span className="font-bold ng-[#484848]">habitat: </span>
-          {speciesPokemon.habitat.name}
+          {speciesPokemon?.habitat?.name}
         </h4>
         <div className="my-1 w-full p-1 grid grid-cols-[auto_1fr_auto]">
           {pokemon?.stats?.map((stat, i) => (

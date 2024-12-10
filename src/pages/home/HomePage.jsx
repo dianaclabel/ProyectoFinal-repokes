@@ -1,11 +1,9 @@
 import { Card } from "../../components/Card";
-import { useFavorites } from "../../context/favorites";
 import { usePokeFetch } from "../../hooks/usePokeFetch";
-import { TypesNav } from "./TypesNav";
+import { TypesNav } from "../../components/TypesNav";
 
 export const HomePage = () => {
-  const { data: list, loading, error } = usePokeFetch("pokemon");
-  const { favorites } = useFavorites();
+  const { data: list, loading } = usePokeFetch("pokemon");
 
   if (loading) return "Loading...";
 
@@ -18,15 +16,6 @@ export const HomePage = () => {
         {list.results?.map(({ name }) => (
           <Card key={name} name={name} />
         ))}
-      </div>
-
-      <div className="fixed bottom-0 right-0 p-4 bg-white rounded-tl-md shadow-md">
-        <h3 className="text-lg font-bold">Favoritos</h3>
-        <ul>
-          {favorites.map((favorite) => (
-            <li key={favorite}>{favorite}</li>
-          ))}
-        </ul>
       </div>
     </div>
   );
