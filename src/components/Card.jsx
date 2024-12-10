@@ -1,6 +1,8 @@
+import { use } from "react";
 import { usePokeFetch } from "../hooks/usePokeFetch";
 import { ProgressBar } from "./ProgressBar";
 import { Icon } from "@iconify/react";
+import { useFavorites } from "../context/favorites";
 
 const colors = {
   green: "bg-green-400",
@@ -19,6 +21,10 @@ export const Card = ({ name }) => {
     loading: loadSpecie,
     error: errorSpecie,
   } = usePokeFetch("pokemon-species", name);
+
+  const { toggleFavorite, favorites } = useFavorites();
+
+  const isFavorite = favorites.includes(name);
 
   if (loading) return null;
 
@@ -44,7 +50,18 @@ export const Card = ({ name }) => {
           <strong className="bg-white border-solid border rounded-md border-[#424242] p-1 mr-1 text-sm inline-block">
             # {pokemon.id}
           </strong>
-          <Icon icon="mdi:cards-heart" fontSize={25} color="white" />
+          <button
+            onClick={() => {
+              toggleFavorite(name);
+            }}
+          >
+            <Icon
+              icon="mdi:cards-heart"
+              fontSize={30}
+              color={isFavorite ? "red" : "white"}
+              id="icon-heart"
+            />
+          </button>
         </div>
 
         <strong className=" py-4 mr-1 text-center block bold capitalize text-xl text-[#484848]  ">
@@ -58,8 +75,7 @@ export const Card = ({ name }) => {
 
         <h4 className="mt-[2px] text-sm  block">
           {" "}
-          <span className="font-bold ng-[#484848]">Peso:</span> {pokemon.weight}{" "}
-          Kg
+          <span className="font-bold ng-[#484848]">Peso:</span> {pokemon.weight} Kg
         </h4>
         <h4 className="mt-[2px] text-sm  block capitalize">
           <span className="font-bold ng-[#484848]">habitat: </span>
@@ -67,13 +83,8 @@ export const Card = ({ name }) => {
         </h4>
         <div className="my-1 w-full p-1 grid grid-cols-[auto_1fr_auto]">
           {pokemon?.stats?.map((stat, i) => (
-            <div
-              key={i}
-              className="col-span-3 grid grid-cols-subgrid items-center gap-2"
-            >
-              <span className="capitalize ng-[#484848] text-xs font-bold">
-                {stat.stat.name}
-              </span>
+            <div key={i} className="col-span-3 grid grid-cols-subgrid items-center gap-2">
+              <span className="capitalize ng-[#484848] text-xs font-bold">{stat.stat.name}</span>
               <div>
                 <ProgressBar percentage={(stat.base_stat / 120) * 100} />
               </div>
