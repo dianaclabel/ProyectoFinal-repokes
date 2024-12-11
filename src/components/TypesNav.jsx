@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { usePokeFetch } from "../hooks/usePokeFetch";
 
 export const TypesNav = () => {

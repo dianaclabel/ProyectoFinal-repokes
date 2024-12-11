@@ -3,7 +3,7 @@ import { usePokeFetch } from "../hooks/usePokeFetch";
 import { ProgressBar } from "./ProgressBar";
 import { Icon } from "@iconify/react";
 import { useFavorites } from "../context/favorites";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const colors = {
   green: "bg-green-400",

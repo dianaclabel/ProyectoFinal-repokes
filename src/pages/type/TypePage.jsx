@@ -1,7 +1,7 @@
 import { Card } from "../../components/Card";
 import { usePokeFetch } from "../../hooks/usePokeFetch";
 import { TypesNav } from "../../components/TypesNav";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 
 export const TypePage = () => {
   const { name } = useParams();

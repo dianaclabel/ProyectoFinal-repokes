@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo-repokes.png";
 import { Icon } from "@iconify/react";
 
@@ -25,12 +25,12 @@ export const NavBar = () => {
           </div> */}
           <ul className="flex space-x-4 items-center">
             <li>
-              <Link to="/" className="text-white font-bold">
+              <Link to="/" className="text-white font-bold" data-testid="home">
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/favoritos" className="text-white font-bold">
+              <Link to="/favoritos" className="text-white font-bold" data-testid="favoritos">
                 Favoritos
               </Link>
             </li>
@@ -38,10 +38,11 @@ export const NavBar = () => {
               <Link
                 to="/reportes/nuevo"
                 className="text-white border-solid border-2 border-white px-2 py-1 rounded-md"
+                data-testid="ReportarPokemon"
               >
                 Reporta un Pokemon
               </Link>
-              <button className="p-1" onClick={openButton}>
+              <button className="p-1" onClick={openButton} role="button">
                 <Icon icon="lucide:chevron-down" fontSize={20} color="white" />
               </button>
               <Link
