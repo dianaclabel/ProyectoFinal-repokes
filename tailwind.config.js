@@ -2,7 +2,11 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        hero: "url('/src/assets/hero-img.png')",
+      },
+    },
   },
   plugins: [require("@tailwindcss/forms")],
 };

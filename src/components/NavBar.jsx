@@ -9,18 +9,20 @@ export const NavBar = () => {
   };
   return (
     <>
-      <div className="w-full  bg-red-300  ">
-        <nav className="flex justify-between items-center px-7 py-4 relative container mx-auto w-full">
+      <div className="w-full bg-zinc-500 ">
+        <nav className="flex justify-between items-center px-7 py-6 relative container mx-auto w-full bg-hero bg-contain bg-center bg-no-repeat ">
           <div className="w-60">
-            <img src={logo} alt="pokeball" className="w-full" />
+            <Link to="/">
+              <img src={logo} alt="pokeball" className="w-full" />
+            </Link>
           </div>
-          <div className="w-1/4">
+          {/* <div className="w-1/4">
             <input
               type="text"
               placeholder="Buscar Pokemon"
               className="px-2 py-1 rounded-md w-full"
             />
-          </div>
+          </div> */}
           <ul className="flex space-x-4 items-center">
             <li>
               <Link to="/" className="text-white font-bold">

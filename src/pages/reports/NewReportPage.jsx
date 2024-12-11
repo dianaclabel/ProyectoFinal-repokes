@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 export const NewReportPage = () => {
   const [form, setForm] = useState({
@@ -41,7 +42,8 @@ export const NewReportPage = () => {
 
     if (Object.values(upgradeErrors).some((error) => error)) {
       setErrors(upgradeErrors);
-      return;
+
+      return toast.error("Ups! Hay errores en el formulario.");
     }
 
     const reports = JSON.parse(localStorage.getItem("reports") ?? "[]");
@@ -58,6 +60,8 @@ export const NewReportPage = () => {
       location: "",
       description: "",
     });
+
+    return toast.success("Su reporte fue enviado con exito.");
   }
 
   return (

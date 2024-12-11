@@ -3,6 +3,7 @@ import { usePokeFetch } from "../hooks/usePokeFetch";
 import { ProgressBar } from "./ProgressBar";
 import { Icon } from "@iconify/react";
 import { useFavorites } from "../context/favorites";
+import { Link } from "react-router";
 
 const colors = {
   green: "bg-green-400",
@@ -115,11 +116,12 @@ export const Card = ({ name }) => {
             </span>
           ))}
         </div> */}
-        <div className="flex justify-center mt-6">
+
+        <Link to="/reportes/nuevo" className="flex justify-center mt-6">
           <button className="  w-3/4 rounded-md py-2  bg-amber-400 text-blue-600  border-blue-600 border-solid border-4 font-bold">
             Reportar pokemón
           </button>
-        </div>
+        </Link>
       </div>
     </div>
   );
